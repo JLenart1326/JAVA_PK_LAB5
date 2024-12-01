@@ -1,5 +1,8 @@
 package main.group.color;
 
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public record Color(float red, float green, float blue, float alpha) {
     public Color {
         if(red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255 || alpha < 0 || alpha > 255){

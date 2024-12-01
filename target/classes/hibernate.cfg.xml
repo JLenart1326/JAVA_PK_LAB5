@@ -27,5 +27,6 @@
         <mapping class="main.group.shapes.Circle"/>
         <mapping class="main.group.shapes.Triangle"/>
         <mapping class="main.group.shapes.Rectangle"/>
+        <mapping class="main.group.shapes.ShapeExt"/>
     </session-factory>
 </hibernate-configuration>

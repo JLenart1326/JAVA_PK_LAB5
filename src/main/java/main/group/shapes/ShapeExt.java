@@ -1,7 +1,15 @@
 package main.group.shapes;
+import jakarta.persistence.*;
 import main.group.color.Color;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ShapeExt {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Embedded
     Color color;
 
     public ShapeExt() {
