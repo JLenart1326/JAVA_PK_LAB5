@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Color.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jakub Lenart LAB3</a> &gt; <a href="index.source.html" class="el_package">main.group.color</a> &gt; <span class="el_source">Color.java</span></div><h1>Color.java</h1><pre class="source lang-java linenums">package main.group.color;
+
+<span class="fc" id="L3">public record Color(float red, float green, float blue, float alpha) {</span>
+<span class="fc" id="L4">    public Color {</span>
+<span class="pc bpc" id="L5" title="6 of 16 branches missed.">        if(red &lt; 0 || red &gt; 255 || green &lt; 0 || green &gt; 255 || blue &lt; 0 || blue &gt; 255 || alpha &lt; 0 || alpha &gt; 255){</span>
+<span class="fc" id="L6">            throw new IllegalArgumentException(&quot;Invalid color&quot;);</span>
+        };
+<span class="fc" id="L8">    }</span>
+    public Color() {
+<span class="fc" id="L10">        this(0,0,0,0);</span>
+<span class="fc" id="L11">    }</span>
+    public Color(float red, float green, float blue) {
+<span class="fc" id="L13">        this(red,green,blue,0);</span>
+<span class="fc" id="L14">    }</span>
+    public void print(){
+<span class="nc" id="L16">        System.out.println(&quot;Red: &quot; + red + &quot; Green: &quot; + green + &quot; Blue: &quot; + blue + &quot; Alpha: &quot; + alpha);</span>
+<span class="nc" id="L17">    }</span>
+    public String getColor(){
+<span class="fc" id="L19">        return this.toString();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

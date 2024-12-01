@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jakub Lenart LAB3</a> &gt; <a href="index.source.html" class="el_package">main.group.mainapp</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package main.group.mainapp;
+import java.util.ArrayList;
+import java.util.List;
+import main.group.shapes.*;
+import main.group.color.*;
+
+import static main.group.shapes.ShapeDescriber.describe;
+import static main.group.shapes.ShapeRenderer.render;
+
+<span class="nc" id="L10">public class Main {</span>
+    public static void main(String[] args) {
+
+        //Lab1
+<span class="nc" id="L14">        Rectangle rect = new Rectangle(new Color(243,15,122,255),4, 6);</span>
+<span class="nc" id="L15">        Triangle triangle = new Triangle(new Color(126,231,122,255),6, 6, 6);</span>
+<span class="nc" id="L16">        Circle circle = new Circle(new Color(25,13,64,255),12);</span>
+
+<span class="nc" id="L18">        List&lt;ShapeExt&gt; shapes = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L19">        shapes.add(triangle);</span>
+<span class="nc" id="L20">        shapes.add(rect);</span>
+<span class="nc" id="L21">        shapes.add(circle);</span>
+
+<span class="nc" id="L23">        describe(rect);</span>
+<span class="nc" id="L24">        describe(triangle);</span>
+
+<span class="nc" id="L26">        rect.getColorDescription();</span>
+<span class="nc" id="L27">        triangle.getColorDescription();</span>
+
+<span class="nc" id="L29">        render(rect);</span>
+<span class="nc" id="L30">        render(triangle);</span>
+<span class="nc" id="L31">        render(shapes);</span>
+
+        //Lab2
+<span class="nc" id="L34">        Color color_1 = new Color();</span>
+<span class="nc" id="L35">        Color color_2 = new Color(145,255,15);</span>
+<span class="nc" id="L36">        Color color_3 = new Color(255,234,25,143);</span>
+        //Color color_4 = new Color(453,-14,-34,777);
+
+<span class="nc" id="L39">        color_1.print();</span>
+<span class="nc" id="L40">        color_2.print();</span>
+<span class="nc" id="L41">        color_3.print();</span>
+
+<span class="nc" id="L43">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
