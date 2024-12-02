@@ -1,63 +1,50 @@
 package main.group.shapes;
-import main.group.color.Color;
+
 import jakarta.persistence.*;
+import main.group.color.Color;
 
 @Entity
-@Table ( name ="rectangles")
-public class Rectangle extends ShapeExt {
-    // Pola (właściwości klasy)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Table(name = "rectangles")
+public class Rectangle extends Shape {
+    private double width;
+    private double height;
 
-    @Column ( name ="a")
-    float a;
+    public Rectangle() {}
 
-    @Column ( name ="b")
-    float b;
-
-    // Konstruktor (służy do tworzenia obiektów klasy)
-    public Rectangle(Color color, float a, float b) {
-        this.color = color;
-        if(a < 0 || b < 0){
-            throw new IllegalArgumentException("Ujemny parametr!");
-        }
-        else{
-            this.a = a;
-            this.b = b;
-        }
-    }
-    public Rectangle() {
-        this.a = 0;
-        this.b = 0;
-        this.color = new Color();
+    public Rectangle(double width, double height, Color color) {
+        super(color);
+        this.width = width;
+        this.height = height;
     }
 
-    // Metoda (czynność, którą klasa może wykonać)
     @Override
-    public float getArea(){
-        return a*b;
-    };
-    @Override
-    public float getPerimeter(){
-        return 2*a+2*b;
-    };
-    public Long getId() {
-        return id;
+    public String toString() {
+        return "W: " + this.width + " H: " + this.height;
     }
+
+    @Override
+    public double getArea() {
+        return width * height;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2 * width + 2 * height;
+    }
+
     public double getWidth() {
-        return a;
+        return width;
     }
 
-    public void setWidth(float width) {
-        this.a = width;
+    public void setWidth(double width) {
+        this.width = width;
     }
 
     public double getHeight() {
-        return b;
+        return height;
     }
 
-    public void setHeight(float height) {
-        this.b = height;
+    public void setHeight(double height) {
+        this.height = height;
     }
 }

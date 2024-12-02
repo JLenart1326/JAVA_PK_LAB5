@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JAVA_PK_LAB3" />
+        <module name="JAVA_PK_LAB5" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="JAVA_PK_LAB3" options="-parameters" />
+      <module name="JAVA_PK_LAB5" options="-parameters" />
     </option>
   </component>
 </project>

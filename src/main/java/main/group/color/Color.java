@@ -1,25 +1,57 @@
 package main.group.color;
 
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.*;
 
 @Embeddable
-public record Color(float red, float green, float blue, float alpha) {
-    public Color {
-        if(red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255 || alpha < 0 || alpha > 255){
-            throw new IllegalArgumentException("Invalid color");
-        };
+public class Color {
+    private int red;
+    private int green;
+    private int blue;
+    private int alpha;
+
+    public Color() {this(0,0,0,0);}
+    public Color(int r, int g, int b) {
+        this(r, g, b,0);
     }
-    public Color() {
-        this(0,0,0,0);
-    }
-    public Color(float red, float green, float blue) {
-        this(red,green,blue,0);
-    }
-    public void print(){
-        System.out.println("Red: " + red + " Green: " + green + " Blue: " + blue + " Alpha: " + alpha);
-    }
-    public String getColor(){
-        return this.toString();
+    public Color(int r, int g, int b, int a) {
+        if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255 || a < 0 || a > 255) {
+            throw new IllegalArgumentException("Wszystkie kanaly musza byc w zakresie 0-255");
+        }
+        this.red = r;
+        this.green = g;
+        this.blue = b;
+        this.alpha = a;
     }
 
+    public int getRed() {
+        return red;
+    }
+
+    public void setRed(int r) {
+        this.red = r;
+    }
+
+    public int getGreen() {
+        return green;
+    }
+
+    public void setGreen(int g) {
+        this.green = g;
+    }
+
+    public int getBlue() {
+        return blue;
+    }
+
+    public void setBlue(int b) {
+        this.blue = b;
+    }
+
+    public int getAlpha() {
+        return alpha;
+    }
+
+    public void setAlpha(int a) {
+        this.alpha = a;
+    }
 }
