@@ -7,6 +7,7 @@ import main.group.shapes.Circle;
 import main.group.spring.repositories.CircleRepository;
 import main.group.spring.repositories.RectangleRepository;
 import main.group.spring.repositories.TriangleRepository;
+import main.group.spring.services.ShapeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,12 @@ import java.util.ArrayList;
 @RequestMapping("/api/shapes")
 public class ShapeController {
 
+    private final ShapeService shapeService;
+
+    public ShapeController(ShapeService shapeService) {
+        this.shapeService = shapeService;
+    }
+
     @Autowired
     private RectangleRepository rectangleRepository;
 
@@ -32,26 +39,22 @@ public class ShapeController {
 
     @GetMapping
     public List<Shape> getAllShapes() {
-        List<Shape> allShapes = new ArrayList<>();
-        allShapes.addAll(rectangleRepository.findAll());
-        allShapes.addAll(triangleRepository.findAll());
-        allShapes.addAll(circleRepository.findAll());
-        return allShapes;
+        return shapeService.getAllShapes();
     }
 
     @PostMapping("/rectangle")
-    public Rectangle createRectangle(@RequestBody Rectangle rectangle) {
-        return rectangleRepository.save(rectangle);
+    public Shape createRectangle(@RequestBody Rectangle rectangle) {
+        return shapeService.saveShape(rectangle);
     }
 
     @PostMapping("/triangle")
-    public Triangle createTriangle(@RequestBody Triangle triangle) {
-        return triangleRepository.save(triangle);
+    public Shape createTriangle(@RequestBody Triangle triangle) {
+        return shapeService.saveShape(triangle);
     }
 
     @PostMapping("/circle")
-    public Circle createCircle(@RequestBody Circle circle) {
-        return circleRepository.save(circle);
+    public Shape createCircle(@RequestBody Circle circle) {
+        return shapeService.saveShape(circle);
     }
 }
 
